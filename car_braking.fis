@@ -1,0 +1,45 @@
+[System]
+Name='car_braking'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='weather'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'trimf',[-0.417 -1.39e-17 0.306320081549439]
+MF2='mf2':'trimf',[0.164 0.5 0.769113149847095]
+MF3='mf3':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Input2]
+Name='traffic_light'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'gaussmf',[0.287869009781617 0]
+MF2='mf2':'gaussmf',[0.109087203706718 0.5]
+MF3='mf3':'gaussmf',[0.164929462747062 1]
+
+[Input3]
+Name='obstacle'
+Range=[0 1]
+NumMFs=2
+MF1='mf1':'trapmf',[-0.9 -0.1 0.555 0.671253822629969]
+MF2='mf2':'trapmf',[0.532619775739042 0.9 1.1 1.9]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=3
+MF1='brake':'trimf',[-0.416666666666667 0 0.416666666666667]
+MF2='mf2':'trimf',[0.0833333333333333 0.5 0.916666666666667]
+MF3='mf3':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Rules]
